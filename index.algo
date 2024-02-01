@@ -1,0 +1,34 @@
+ALGORITHM algorithm_insertion
+VAR
+    array: ARRAY [0..4] OF INTEGER;  // Declare array
+    a, i, element: INTEGER;  // Declare variables
+
+BEGIN 
+    // Initialize array
+    array[0] := 2;
+    array[1] := 9;
+    array[2] := 5;
+    array[3] := 8;
+    array[4] := 7;
+
+    // Iterate over the array
+    FOR a FROM 0 TO array.length-1 STEP  DO
+       element := array[a];  // Get the element
+        i := a - 1;  // Set i to the previous index
+
+        // Insert the element into the sorted subarray
+        WHILE (i >= 0) AND (element < array[i]) DO
+            array[i + 1] := array[i];  // Shift elements to the right
+            i := i - 1;  // Decrement i
+        END_WHILE
+
+        array[i + 1] := element;  // Insert element into the sorted subarray
+    END_FOR
+
+   // Sorting function (if needed)
+   function insertion_sort(arr) {
+        // Implement insertion sort algorithm here
+   }
+
+   // Print the sorted array
+   console.log('Sorted array is: ' + array.join(', '));
